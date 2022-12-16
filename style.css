@@ -4,16 +4,17 @@ h1, h2, h3 {
 }
 
 ul, li {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
-.game-container {
-  background-color: var(--bs-teal);
+.flex {
+  display: flex;
 }
 
-body {
+.game-container {
+  flex-direction: column;
+  gap: 50%;
+  height: 100vh;
   background-color: black;
   background-image:
     url(https://css-tricks.com/examples/StarryNightMoving/images/foreground.png),
@@ -22,8 +23,12 @@ body {
   animation: linear sky 100s infinite;
 }
 
-.animation {
-  margin: 50px auto;
+.game-container-in {
+justify-content: center;
+}
+
+.moon-animation {
+  margin: 20px auto;
   width: 200px;
   height: 200px;
   background: black;
@@ -49,8 +54,10 @@ body {
 
 .modal-window {
   position: fixed;
-  top: 50%;
-  right: 35%;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
   overflow: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -62,5 +69,24 @@ body {
 }
 
 .modal-window__title {
+  text-align: center;
   color: #b7c3f9;
+}
+
+.cards {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+}
+
+.card {
+  min-width: 150px;
+  min-height: 170px;
+  background-color: aqua;
+}
+
+
+.display-none {
+  display: none;
 }
