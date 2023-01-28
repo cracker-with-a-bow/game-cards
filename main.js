@@ -23,11 +23,17 @@ let modalWindow = document.querySelector('.modal-window');
     for (let i = 0; i < countCards; ++i) {
       item = document.createElement('li');
       item.classList.add('card');
+      item.classList.add('col-2');
       list.append(item);
     };
     console.log(list);
     let cardsContainer = document.getElementById('cards-container');
     cardsContainer.append(list);
+  }
+
+  function shuffleArray(countItems) {
+    countItems = selectValue;
+    arrayOrigin = [];
   }
 
 

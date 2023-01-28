@@ -1,10 +1,16 @@
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
+}
+
+body {
+  overflow: hidden;
 }
 
 .flex {
@@ -13,8 +19,9 @@ ul, li {
 
 .game-container {
   flex-direction: column;
-  gap: 50%;
+  gap: 80px;
   height: 100vh;
+  padding: 10px 0 10px 0;
   background-color: black;
   background-image:
     url(https://css-tricks.com/examples/StarryNightMoving/images/foreground.png),
@@ -23,8 +30,9 @@ ul, li {
   animation: linear sky 100s infinite;
 }
 
+
 .game-container-in {
-justify-content: center;
+  justify-content: center;
 }
 
 .moon-animation {
@@ -41,23 +49,30 @@ justify-content: center;
     box-shadow: -220px 0px 0 -1px #eee, -220px 0 40px #999;
     transform: translateX(220px);
   }
+
   100% {
     box-shadow: 220px 0px 0 -1px #eee, 220px 0 40px #999;
     transform: translateX(-220px);
   }
 }
+
 @keyframes sky {
-  0% { background-position: 0 0, 900px 0; }
-  100% { background-position: 200px -20px, 200px 20px; }
+  0% {
+    background-position: 0 0, 900px 0;
+  }
+
+  100% {
+    background-position: 200px -20px, 200px 20px;
+  }
 }
 
 
 .modal-window {
   position: fixed;
-  top:0;
-  bottom:0;
-  right:0;
-  left:0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   overflow: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -73,18 +88,26 @@ justify-content: center;
   color: #b7c3f9;
 }
 
+.cards-container {
+  justify-content: center;
+}
+
 .cards {
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap:20px;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 80%;
+  padding-right: 0;
 }
 
 .card {
-  min-width: 150px;
-  min-height: 170px;
+  min-width: 50px;
+  min-height: 90px;
   background-color: aqua;
 }
+
 
 
 .display-none {
