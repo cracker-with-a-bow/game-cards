@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function createCountCards() {
     const select = document.querySelector('.modal-window__select');
     const modalWindow = document.querySelector('.modal-window');
-    select.addEventListener('change', function e() {
+    select.addEventListener('change', () => {
       selectValue = parseInt(select.value);
       modalWindow.classList.add('display-none');
       createGameField(selectValue);
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (firstCard.textContent != secondCard.textContent) {
           firstCard.classList.remove('active-card');
           secondCard.classList.remove('active-card');
-          console.log('не совпадают');
           firstCard = null;
           secondCard = null;
         }
@@ -64,15 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (firstCard != null && secondCard != null) {
         if (firstCard.textContent == secondCard.textContent) {
-          console.log('одинаковые');
           clicks++;
-          console.log(clicks);
           firstCard = null;
           secondCard = null;
         }
       }
 
-      console.log('после цикла', clicks);
       if (countCards / 2 == clicks) {
         alert('Вы выиграли');
         location.reload();
@@ -104,17 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     return array;
   }
-
-
-
-
-
-  /*function createTodoApp(container, title, keyName) {
-
-
-    container.append(list);
-  }
-
-   window.createTodoApp = createTodoApp;*/
 
 });
