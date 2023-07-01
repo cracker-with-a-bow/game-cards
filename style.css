@@ -113,6 +113,15 @@ body {
 visibility: hidden;
 }
 
+.active-card {
+  min-width: 50px;
+  min-height: 90px;
+  background-color: bisque;
+}
+.active-card * {
+  visibility: visible;
+}
+
 
 
 .display-none {

@@ -1,9 +1,13 @@
-(function () {
+document.addEventListener('DOMContentLoaded', () => {
 
-  let selectValue = 4;
+
+  let clicks = 0;
+  selectValue = 4;
+  firstCard = null;
+  secondCard = null;
   function createCountCards() {
-    let select = document.querySelector('.modal-window__select');
-    let modalWindow = document.querySelector('.modal-window');
+    const select = document.querySelector('.modal-window__select');
+    const modalWindow = document.querySelector('.modal-window');
     select.addEventListener('change', function e() {
       selectValue = parseInt(select.value);
       modalWindow.classList.add('display-none');
@@ -17,9 +21,9 @@
   function createGameField(countCards) {
     createArrayNumbersCards(selectValue);
     let list = document.createElement('ul');
+    let card;
     list.classList.add('list-group');
     list.classList.add('cards');
-    let card;
     for (let i = 0; i < countCards; ++i) {
       card = document.createElement('li');
       card.classList.add('card');
@@ -34,6 +38,49 @@
 
     let cardsContainer = document.getElementById('cards-container');
     cardsContainer.append(list);
+
+    function clickCard(e) {
+
+      let activeCard = e.target;
+      activeCard.classList.add('active-card');
+
+      if (firstCard != null && secondCard != null) {
+        if (firstCard.textContent != secondCard.textContent) {
+          firstCard.classList.remove('active-card');
+          secondCard.classList.remove('active-card');
+          console.log('не совпадают');
+          firstCard = null;
+          secondCard = null;
+        }
+      }
+
+      if (firstCard == null) {
+        firstCard = activeCard
+      } else {
+        if (secondCard == null) {
+          secondCard = activeCard
+        }
+      }
+
+      if (firstCard != null && secondCard != null) {
+        if (firstCard.textContent == secondCard.textContent) {
+          console.log('одинаковые');
+          clicks++;
+          console.log(clicks);
+          firstCard = null;
+          secondCard = null;
+        }
+      }
+
+      console.log('после цикла', clicks);
+      if (countCards / 2 == clicks) {
+        alert('Вы выиграли');
+        location.reload();
+      }
+    }
+
+
+
     return cardText;
   }
 
@@ -58,10 +105,7 @@
     return array;
   }
 
-  function clickCard(e) {
-     let activeCard = e.target;
-     console.log(activeCard.textContent);
-  }
+
 
 
 
@@ -73,4 +117,4 @@
 
    window.createTodoApp = createTodoApp;*/
 
-})();
+});
